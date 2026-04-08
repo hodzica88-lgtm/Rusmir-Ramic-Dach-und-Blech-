@@ -1,25 +1,25 @@
 :root {
   --primary: #4d6173;
   --primary-dark: #344554;
-  --primary-soft: #d9e0e6;
-  --accent: #7d8f9d;
+  --primary-soft: #dbe2e8;
+  --accent: #728392;
 
   --dark: #202a34;
   --dark-2: #2d3945;
-  --dark-3: #394754;
+  --dark-3: #3c4a57;
 
   --white: #ffffff;
-  --bg: #eef2f5;
+  --bg: #eff3f6;
   --surface: #f8fafb;
   --surface-2: #e9eef2;
 
   --text: #1f2a34;
-  --text-soft: #63717d;
-  --border: #d6dde3;
+  --text-soft: #64717d;
+  --border: #d7dee4;
 
   --shadow-sm: 0 10px 24px rgba(32, 42, 52, 0.07);
-  --shadow-md: 0 22px 48px rgba(32, 42, 52, 0.12);
-  --shadow-lg: 0 34px 78px rgba(32, 42, 52, 0.18);
+  --shadow-md: 0 20px 48px rgba(32, 42, 52, 0.12);
+  --shadow-lg: 0 34px 78px rgba(32, 42, 52, 0.17);
 
   --radius-sm: 14px;
   --radius-md: 20px;
@@ -86,7 +86,7 @@ textarea {
   text-align: center;
 }
 
-.dot {
+.topbar-dot {
   width: 5px;
   height: 5px;
   border-radius: 50%;
@@ -96,14 +96,14 @@ textarea {
 .site-header {
   position: static;
   background: rgba(255, 255, 255, 0.98);
-  border-bottom: 1px solid rgba(214, 221, 227, 0.95);
+  border-bottom: 1px solid rgba(215, 222, 228, 0.95);
 }
 
 .brand-area {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 26px 0 10px;
+  padding: 28px 0 10px;
 }
 
 .brand {
@@ -114,7 +114,7 @@ textarea {
 
 .brand-logo {
   width: min(100%, 430px);
-  max-height: 170px;
+  max-height: 175px;
   object-fit: contain;
   filter: drop-shadow(0 16px 28px rgba(52, 69, 84, 0.12));
   transition: var(--transition);
@@ -124,22 +124,19 @@ textarea {
   transform: translateY(-2px);
 }
 
-.header-pitch {
+.header-line {
   display: flex;
   justify-content: center;
   text-align: center;
   padding: 0 0 14px;
 }
 
-.header-pitch p {
+.header-line p {
   margin: 0;
   max-width: 760px;
   color: var(--text-soft);
   font-size: 1rem;
-}
-
-.header-pitch strong {
-  color: var(--primary-dark);
+  font-weight: 500;
 }
 
 .nav-row {
@@ -189,37 +186,27 @@ textarea {
 .hero {
   position: relative;
   overflow: hidden;
-  min-height: 760px;
-  display: flex;
-  align-items: center;
+  background:
+    radial-gradient(circle at top center, rgba(255, 255, 255, 0.85), transparent 28%),
+    linear-gradient(180deg, #edf2f5 0%, #dde5eb 100%);
   text-align: center;
-  background: #465868;
 }
 
-.hero-media,
-.hero-overlay {
+.hero::before {
+  content: "";
   position: absolute;
   inset: 0;
-}
-
-.hero-media {
   background:
-    linear-gradient(rgba(22, 31, 39, 0.32), rgba(22, 31, 39, 0.46)),
-    url("https://dach-und-blech.de/wp-content/uploads/2014/01/dachdeckerarbeiten_rusmir_ramic_dmjh_004.jpg") center center / cover no-repeat;
-  transform: scale(1.03);
-}
-
-.hero-overlay {
-  background:
-    radial-gradient(circle at top center, rgba(255, 255, 255, 0.18), transparent 28%),
-    linear-gradient(180deg, rgba(77, 97, 115, 0.56) 0%, rgba(52, 69, 84, 0.86) 100%);
+    linear-gradient(135deg, rgba(255, 255, 255, 0.38), transparent 38%),
+    linear-gradient(315deg, rgba(77, 97, 115, 0.07), transparent 54%);
+  pointer-events: none;
 }
 
 .hero-inner {
   position: relative;
   z-index: 2;
-  padding: 84px 0 94px;
-  max-width: 960px;
+  max-width: 980px;
+  padding: 86px 0 94px;
 }
 
 .hero-badges {
@@ -236,31 +223,59 @@ textarea {
   min-height: 42px;
   padding: 0 16px;
   border-radius: 999px;
-  background: rgba(255, 255, 255, 0.14);
-  border: 1px solid rgba(255, 255, 255, 0.18);
-  color: #fff;
+  background: rgba(255, 255, 255, 0.82);
+  border: 1px solid var(--border);
+  color: var(--primary-dark);
   font-weight: 700;
-  backdrop-filter: blur(8px);
+  box-shadow: var(--shadow-sm);
 }
 
 .hero h1 {
   margin: 0 0 22px;
-  font-size: clamp(2.8rem, 5.4vw, 5.6rem);
+  font-size: clamp(2.9rem, 5.3vw, 5.5rem);
   line-height: 0.95;
   letter-spacing: -0.055em;
-  color: #fff;
+  color: var(--dark);
 }
 
 .hero h1 span {
   display: block;
-  color: rgba(255, 255, 255, 0.8);
+  color: var(--primary);
 }
 
 .hero-text {
-  margin: 0 auto 34px;
-  max-width: 810px;
-  font-size: 1.13rem;
-  color: rgba(255, 255, 255, 0.9);
+  margin: 0 auto 28px;
+  max-width: 840px;
+  font-size: 1.12rem;
+  color: var(--text-soft);
+}
+
+.hero-phone-box {
+  max-width: 420px;
+  margin: 0 auto 28px;
+  padding: 20px 22px;
+  border-radius: var(--radius-md);
+  background: #fff;
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-md);
+}
+
+.hero-phone-label {
+  display: block;
+  margin-bottom: 6px;
+  font-size: 0.86rem;
+  font-weight: 800;
+  letter-spacing: 0.11em;
+  text-transform: uppercase;
+  color: var(--text-soft);
+}
+
+.hero-phone-number {
+  display: inline-block;
+  font-size: clamp(1.7rem, 4vw, 2.5rem);
+  font-weight: 900;
+  letter-spacing: -0.04em;
+  color: var(--primary-dark);
 }
 
 .hero-actions {
@@ -271,46 +286,46 @@ textarea {
   margin-bottom: 34px;
 }
 
-.hero-trust {
+.hero-trust-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 18px;
 }
 
-.hero-trust-item {
+.trust-card {
   background: rgba(255, 255, 255, 0.96);
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  border: 1px solid var(--border);
   border-radius: var(--radius-md);
-  padding: 20px;
+  padding: 22px 20px;
   box-shadow: var(--shadow-sm);
 }
 
-.hero-trust-item strong {
+.trust-card strong {
   display: block;
   margin-bottom: 6px;
   font-size: 1rem;
 }
 
-.hero-trust-item span {
+.trust-card span {
   color: var(--text-soft);
   font-size: 0.94rem;
 }
 
-.intro-strip {
+.trust-strip {
+  padding: 0 0 30px;
+  margin-top: -34px;
   position: relative;
   z-index: 3;
-  margin-top: -44px;
-  padding-bottom: 28px;
 }
 
-.intro-strip-inner {
+.trust-strip-inner {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 18px;
 }
 
-.intro-card {
-  background: rgba(255, 255, 255, 0.98);
+.trust-strip-item {
+  background: #fff;
   border: 1px solid var(--border);
   border-radius: var(--radius-md);
   padding: 22px 20px;
@@ -318,13 +333,13 @@ textarea {
   box-shadow: var(--shadow-sm);
 }
 
-.intro-card strong {
+.trust-strip-item strong {
   display: block;
   margin-bottom: 6px;
   font-size: 1rem;
 }
 
-.intro-card span {
+.trust-strip-item span {
   color: var(--text-soft);
   font-size: 0.94rem;
 }
@@ -336,7 +351,7 @@ textarea {
 .section-light {
   background:
     radial-gradient(circle at top center, rgba(77, 97, 115, 0.08), transparent 28%),
-    linear-gradient(180deg, #eef2f5 0%, #f8fafb 100%);
+    linear-gradient(180deg, #eef3f6 0%, #f8fafb 100%);
 }
 
 .section-white {
@@ -345,7 +360,7 @@ textarea {
 
 .section-gradient {
   background:
-    linear-gradient(180deg, #f8fafb 0%, #eef2f5 100%);
+    linear-gradient(180deg, #f8fafb 0%, #eef3f6 100%);
 }
 
 .section-dark {
@@ -408,10 +423,10 @@ textarea {
 }
 
 .service-card {
-  background: rgba(255, 255, 255, 0.95);
+  background: rgba(255, 255, 255, 0.97);
   border: 1px solid var(--border);
   border-radius: var(--radius-lg);
-  overflow: hidden;
+  padding: 30px 26px;
   box-shadow: var(--shadow-sm);
   transition: var(--transition);
   text-align: center;
@@ -422,68 +437,32 @@ textarea {
   box-shadow: var(--shadow-md);
 }
 
-.service-card-large {
-  grid-column: span 2;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  text-align: left;
+.service-card.featured {
+  background: linear-gradient(180deg, #ffffff 0%, #f5f8fa 100%);
 }
 
-.service-image {
-  position: relative;
-  overflow: hidden;
+.service-card.accent {
+  background: linear-gradient(180deg, var(--primary-dark) 0%, var(--primary) 100%);
+  border-color: rgba(255, 255, 255, 0.08);
 }
 
-.service-image::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(180deg, transparent 12%, rgba(32, 42, 52, 0.18) 100%);
-}
-
-.service-image img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  min-height: 100%;
-  transition: transform 0.5s ease;
-}
-
-.service-card:hover .service-image img {
-  transform: scale(1.05);
-}
-
-.small-image {
-  height: 210px;
-}
-
-.service-content {
-  padding: 30px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-
-.service-content.compact {
-  padding: 26px;
-}
-
-.service-number {
+.service-icon {
+  width: 58px;
+  height: 58px;
+  margin: 0 auto 18px;
+  border-radius: 18px;
   display: inline-flex;
-  width: 56px;
-  height: 56px;
   align-items: center;
   justify-content: center;
-  border-radius: 16px;
-  margin: 0 auto 18px;
   background: var(--primary-dark);
   color: #fff;
   font-weight: 900;
   letter-spacing: -0.03em;
+  box-shadow: var(--shadow-sm);
 }
 
-.service-card-large .service-number {
-  margin: 0 0 18px;
+.service-card.accent .service-icon {
+  background: rgba(255, 255, 255, 0.16);
 }
 
 .service-card h3 {
@@ -497,18 +476,9 @@ textarea {
   color: var(--text-soft);
 }
 
-.service-card-accent {
-  background: linear-gradient(180deg, var(--primary-dark) 0%, var(--primary) 100%);
-  border-color: rgba(255, 255, 255, 0.08);
-}
-
-.service-card-accent .service-number {
-  background: rgba(255, 255, 255, 0.18);
-}
-
-.service-card-accent h3,
-.service-card-accent p,
-.service-card-accent .service-link {
+.service-card.accent h3,
+.service-card.accent p,
+.service-card.accent .service-link {
   color: #fff;
 }
 
@@ -516,6 +486,12 @@ textarea {
   display: inline-block;
   margin-top: 18px;
   font-weight: 800;
+}
+
+.section-cta {
+  display: flex;
+  justify-content: center;
+  margin-top: 34px;
 }
 
 .benefits-grid {
@@ -531,6 +507,10 @@ textarea {
   padding: 26px;
   text-align: center;
   backdrop-filter: blur(6px);
+}
+
+.benefitCard h3 {
+  color: #fff;
 }
 
 .benefit-card h3 {
@@ -813,14 +793,14 @@ textarea {
 }
 
 .btn-secondary {
-  background: rgba(255, 255, 255, 0.14);
-  color: #fff;
-  border-color: rgba(255, 255, 255, 0.18);
-  backdrop-filter: blur(8px);
+  background: #fff;
+  color: var(--primary-dark);
+  border-color: var(--border);
+  box-shadow: var(--shadow-sm);
 }
 
 .btn-secondary:hover {
-  background: rgba(255, 255, 255, 0.2);
+  border-color: var(--primary);
 }
 
 .btn-white {
@@ -892,9 +872,8 @@ textarea {
 }
 
 @media (max-width: 1180px) {
-  .hero-trust,
-  .intro-strip-inner,
-  .benefits-grid {
+  .hero-trust-grid,
+  .trust-strip-inner {
     grid-template-columns: repeat(2, 1fr);
   }
 
@@ -903,8 +882,8 @@ textarea {
     grid-template-columns: repeat(2, 1fr);
   }
 
-  .service-card-large {
-    grid-column: span 2;
+  .benefits-grid {
+    grid-template-columns: repeat(2, 1fr);
   }
 
   .area-wrap,
@@ -924,20 +903,16 @@ textarea {
     max-height: 145px;
   }
 
-  .hero {
-    min-height: auto;
-  }
-
   .hero-inner {
-    padding: 70px 0 90px;
+    padding: 72px 0 88px;
   }
 
   .section {
     padding: 84px 0;
   }
 
-  .hero-trust,
-  .intro-strip-inner,
+  .hero-trust-grid,
+  .trust-strip-inner,
   .services-grid,
   .benefits-grid,
   .process-grid,
@@ -945,26 +920,8 @@ textarea {
     grid-template-columns: 1fr;
   }
 
-  .service-card-large {
-    grid-column: span 1;
-    grid-template-columns: 1fr;
-    text-align: center;
-  }
-
-  .service-card-large .service-number {
-    margin: 0 auto 18px;
-  }
-
-  .service-content {
-    text-align: center;
-  }
-
-  .small-image {
-    height: 230px;
-  }
-
-  .area-panel-box,
   .contact-form,
+  .area-panel-box,
   .cta-box {
     padding: 26px;
   }
@@ -1000,7 +957,7 @@ textarea {
     width: min(100%, 270px);
   }
 
-  .header-pitch p {
-    font-size: 0.95rem;
+  .hero-phone-number {
+    font-size: 1.9rem;
   }
 }
